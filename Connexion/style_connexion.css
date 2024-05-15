@@ -1,0 +1,101 @@
+/* Styles généraux pour toutes les pages */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #ffffff, #4388CC);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 95%; 
+    max-width: 500px;
+    background: linear-gradient(to bottom, #ffffff, #4388CC);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    text-align: center;
+    margin-top: 0; 
+}
+
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px; 
+}
+
+.form-group {
+    margin-bottom: 30px; 
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 15px; 
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* Styles spécifiques pour la page de déconnexion */
+.container button {
+    margin-top: 20px;
+}
+
+/* Styles spécifiques pour la page d'affichage des annonces */
+.container {
+    padding: 20px;
+}
+
+.container div {
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Styles spécifiques pour la page de création d'annonce */
+.container form {
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 70px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    margin-bottom: 15px;
+}
