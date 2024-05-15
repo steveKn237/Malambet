@@ -1,0 +1,72 @@
+body{
+    padding: 0%;
+    margin: 0%;
+}
+
+header{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: rgb(67, 136, 204);
+    display: flex;
+    justify-content: space-between;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+header h1{
+    padding-left: 25px;
+    
+}
+
+header nav{
+    gap: 15px;
+    padding-right: 25px;
+}
+
+header nav a{
+    gap: 15px;
+    text-decoration: none;
+    color: black;
+    align-items: center;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+}
+
+aside:first-of-type{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    padding: 2%;
+    gap: 15px;
+    margin-left: 8px;
+}
+
+aside:first-of-type input{
+    border: none;
+    border-radius: 5px;
+    height: 25px;
+    font-size: large;
+}
+
+aside:first-of-type input:last-of-type{
+    margin-bottom: 25px;
+}
+
+
+main div{
+    display: flex;
+
+}
+
+/* classe */
+
+.aside{
+    border: none;
+    border-radius: 18px;
+    background-color: rgb(67, 136, 204);
+    width: 250px;
+}
