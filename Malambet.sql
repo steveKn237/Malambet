@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mer. 22 mai 2024 à 14:41
--- Version du serveur : 10.6.11-MariaDB-0ubuntu0.22.04.1
--- Version de PHP : 8.1.2-1ubuntu2.9
+-- Généré le : mer. 22 mai 2024 à 13:07
+-- Version du serveur : 10.6.16-MariaDB-0ubuntu0.22.04.1
+-- Version de PHP : 8.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `Malambet`
 --
+CREATE DATABASE IF NOT EXISTS `Malambet` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `Malambet`;
 
 -- --------------------------------------------------------
 
@@ -29,9 +31,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `Equipes` (
   `EquipeID` int(11) NOT NULL,
-  `NomEquipe` varchar(20) NOT NULL,
+  `NomEquipe` varchar(50) NOT NULL,
   `Acronyme` varchar(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `Equipes`
+--
+
+INSERT INTO `Equipes` (`EquipeID`, `NomEquipe`, `Acronyme`) VALUES
+(1, 'FC Bayern München', 'BAY'),
+(2, 'Real Madrid', 'RMA'),
+(3, 'Olympique de Marseille', 'OM'),
+(4, 'Paris Saint Germin', 'PSG');
 
 -- --------------------------------------------------------
 
@@ -41,8 +53,17 @@ CREATE TABLE `Equipes` (
 
 CREATE TABLE `Ligue` (
   `idLigue` int(11) NOT NULL,
-  `nomLigue` varchar(100) NOT NULL
+  `nomLigue` varchar(100) NOT NULL,
+  `Acronyme` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `Ligue`
+--
+
+INSERT INTO `Ligue` (`idLigue`, `nomLigue`, `Acronyme`) VALUES
+(1, 'Ligue Des Champions', 'LDC'),
+(2, 'Ligue 1 Mcdonald\'s', 'L1');
 
 -- --------------------------------------------------------
 
@@ -57,6 +78,15 @@ CREATE TABLE `Matchs` (
   `Date` datetime DEFAULT NULL,
   `idLigue` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `Matchs`
+--
+
+INSERT INTO `Matchs` (`MatchID`, `EquipeID_domicile`, `EquipeID_visiteur`, `Date`, `idLigue`) VALUES
+(2, 3, 2, '2024-05-22 21:00:00', 1),
+(3, 1, 3, '2024-05-22 13:02:01', 1),
+(4, 3, 4, '2024-05-22 19:00:00', 2);
 
 -- --------------------------------------------------------
 
@@ -134,19 +164,19 @@ ALTER TABLE `Utilisateurs`
 -- AUTO_INCREMENT pour la table `Equipes`
 --
 ALTER TABLE `Equipes`
-  MODIFY `EquipeID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `EquipeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `Ligue`
 --
 ALTER TABLE `Ligue`
-  MODIFY `idLigue` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idLigue` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `Matchs`
 --
 ALTER TABLE `Matchs`
-  MODIFY `MatchID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `MatchID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `Paris`

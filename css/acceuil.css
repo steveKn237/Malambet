@@ -1,6 +1,7 @@
 body{
     padding: 0%;
     margin: 0%;
+    /* display: flex; */
 }
 
 header{
@@ -11,6 +12,7 @@ header{
     justify-content: space-between;
     padding-left: 1%;
     padding-right: 1%;
+    width: 100%;
 }
 
 header h1{
@@ -36,13 +38,14 @@ main{
 }
 
 aside:first-of-type{
-    position: absolute;
+    /* position: absolute; */
     display: flex;
     flex-direction: column;
     margin-top: 25px;
     padding: 2%;
     gap: 15px;
-    margin-left: 8px;
+    margin-left: 1%;
+    
 }
 
 aside:first-of-type input{
@@ -56,17 +59,89 @@ aside:first-of-type input:last-of-type{
     margin-bottom: 25px;
 }
 
+aside:last-of-type{
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    padding: 2%;
+    gap: 15px;
+    margin-right: 1%;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 1000px;
+    margin-left: auto;
+}
 
 main div{
     display: flex;
+}
 
+main > div:first-of-type{
+    border: none;
+    border-radius: 18px;
+    background-color: rgb(67, 136, 204);
+    width: 810px;
+    margin-top: 25px;
 }
 
 /* classe */
+
+.container{
+    display: flex;
+    justify-content: space-around;
+}
 
 .aside{
     border: none;
     border-radius: 18px;
     background-color: rgb(67, 136, 204);
     width: 250px;
+}
+
+.match{
+    border: none;
+    border-radius: 18px;
+    background-color: rgb(67, 136, 204);
+    width: 500px;
+    margin-top: 25px;
+    justify-content: space-around;
+}
+
+.match div:first-of-type{
+    display: flex;
+    flex-direction: column;
+}
+
+.match div:last-of-type{
+    display: flex;
+    align-items: center;
+}
+
+.match div div p{
+    text-align: left;
+}
+
+.match div:last-of-type button{
+    height: 35px;
+    margin-right: 10px;
+}
+
+.aside2{
+    display: flex;
+    justify-content: right;
+    border: none;
+    border-radius: 18px;
+    background-color: rgb(67, 136, 204);
+    width: 250px;
+
+}
+
+.link{
+    text-decoration: none;
+    color: black;
 }
