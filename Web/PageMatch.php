@@ -119,8 +119,9 @@ $stmtMatch->execute();
                 </div>
             </section>
 
+            <section>
                 <h2>Nombre de but dans le match</h2>
-                
+
                 <div id="But">
 
                     <div class="AfficheBut">
@@ -160,12 +161,49 @@ $stmtMatch->execute();
                             <br>
                             cote : 1.40
                         </button>
-
                     </div>
+
+                    <div class="AfficheBut">
+                        <button>
+                            -0.5 but
+                            <br>
+                            cote : 1.40
+                        </button>
+
+                        <button>
+                            -1.5 but
+                            <br>
+                            cote : 1.40
+                        </button>
+
+                        <button>
+                            -2.5 but
+                            <br>
+                            cote : 1.40
+                        </button>
+
+                        <button>
+                            -3.5 but
+                            <br>
+                            cote : 1.40
+                        </button>
+
+                        <button>
+                            -4.5 but
+                            <br>
+                            cote : 1.40
+                        </button>
+
+                        <button>
+                            -5.5 but
+                            <br>
+                            cote : 1.40
+                        </button>
+                    </div>
+
 
                 </div>
 
-            <section>
 
             </section>
 
@@ -179,7 +217,16 @@ $stmtMatch->execute();
     </div>
 
     <footer>
-
+        <div>
+            <p>À propos
+            </p>
+        </div>
+        <div>
+            <p>Réseaux sociaux</p>
+        </div>
+        <div>
+            <p>&copy; Copyright all right reserved, Conti, Ferreira, Ndombe</p>
+        </div>
     </footer>
 </body>
 

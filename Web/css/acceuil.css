@@ -55,6 +55,10 @@ aside:first-of-type input{
     font-size: large;
 }
 
+aside:first-of-type input:hover{
+    background-color: rgb(248, 209, 209);
+}
+
 aside:first-of-type input:last-of-type{
     margin-bottom: 25px;
 }
@@ -87,6 +91,32 @@ main > div:first-of-type{
     background-color: rgb(67, 136, 204);
     width: 810px;
     margin-top: 25px;
+}
+
+
+footer{
+    width: 100%;
+    min-height: 100px;
+    margin-top: 20px;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    box-shadow: grey 0px -2px 6px;
+    padding: 30px;
+    background-color: #f2f2f2;
+}
+
+footer div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+}
+
+footer div:not(:nth-of-type(1)){
+    border-left: 2px solid #01050A;
+    border-radius: 2px;
 }
 
 /* classe */
@@ -145,3 +175,5 @@ main > div:first-of-type{
     text-decoration: none;
     color: black;
 }
+
+

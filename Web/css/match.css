@@ -41,6 +41,33 @@ section:nth-of-type(2) div button{
     border: none;
 }
 
+section:nth-of-type(2) div button:hover{
+    background-color: rgb(248, 209, 209);
+}
+
+section:last-of-type{
+    display: flex;
+    flex-direction: column;
+}
+
+section:last-of-type h2{
+    margin-left: 50px;
+}
+
+
+section:last-of-type div button{
+    width: 150px;
+    margin-left: 50px;
+    margin-bottom: 25px;
+    border-radius: 18px;
+    border: none;
+}
+
+section:last-of-type div button:hover{
+    background-color: rgb(248, 209, 209);
+}
+
+
 /* id */
 
 #Competition{
@@ -54,6 +81,11 @@ section:nth-of-type(2) div button{
 
 #ArtDateHeure{
     text-align: center;
+}
+
+#But{
+    display: flex;
+    justify-content: space-around;
 }
 
 /* classe */
@@ -71,5 +103,7 @@ section:nth-of-type(2) div button{
 }
 
 .AfficheBut{
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }

@@ -106,8 +106,17 @@
 
     </div>
         
-        <footer>
-
+    <footer>
+        <div>
+            <p>À propos
+            </p>
+        </div>
+        <div>
+            <p>Réseaux sociaux</p>
+        </div>
+        <div>
+            <p>&copy; Copyright all right reserved, Conti, Ferreira, Ndombe</p>
+        </div>
     </footer>
 </body>
 
