@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mer. 22 mai 2024 à 13:07
+-- Généré le : mer. 29 mai 2024 à 13:55
 -- Version du serveur : 10.6.16-MariaDB-0ubuntu0.22.04.1
--- Version de PHP : 8.2.14
+-- Version de PHP : 8.2.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,18 +32,20 @@ USE `Malambet`;
 CREATE TABLE `Equipes` (
   `EquipeID` int(11) NOT NULL,
   `NomEquipe` varchar(50) NOT NULL,
-  `Acronyme` varchar(3) NOT NULL
+  `Acronyme` varchar(3) NOT NULL,
+  `Logo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `Equipes`
 --
 
-INSERT INTO `Equipes` (`EquipeID`, `NomEquipe`, `Acronyme`) VALUES
-(1, 'FC Bayern München', 'BAY'),
-(2, 'Real Madrid', 'RMA'),
-(3, 'Olympique de Marseille', 'OM'),
-(4, 'Paris Saint Germin', 'PSG');
+INSERT INTO `Equipes` (`EquipeID`, `NomEquipe`, `Acronyme`, `Logo`) VALUES
+(1, 'FC Bayern München', 'BAY', 'img/BAY.png'),
+(2, 'Real Madrid', 'RMA', 'img/RMA.png'),
+(3, 'Olympique de Marseille', 'OM', 'img/OM.png'),
+(4, 'Paris Saint Germin', 'PSG', 'img/PSG.png'),
+(5, 'FC Barcelona', 'BAR', 'img/BAR.png');
 
 -- --------------------------------------------------------
 
@@ -86,7 +88,8 @@ CREATE TABLE `Matchs` (
 INSERT INTO `Matchs` (`MatchID`, `EquipeID_domicile`, `EquipeID_visiteur`, `Date`, `idLigue`) VALUES
 (2, 3, 2, '2024-05-22 21:00:00', 1),
 (3, 1, 3, '2024-05-22 13:02:01', 1),
-(4, 3, 4, '2024-05-22 19:00:00', 2);
+(4, 3, 4, '2024-05-22 19:00:00', 2),
+(5, 1, 5, '2024-10-04 14:56:20', 1);
 
 -- --------------------------------------------------------
 
@@ -164,7 +167,7 @@ ALTER TABLE `Utilisateurs`
 -- AUTO_INCREMENT pour la table `Equipes`
 --
 ALTER TABLE `Equipes`
-  MODIFY `EquipeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `EquipeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `Ligue`
@@ -176,7 +179,7 @@ ALTER TABLE `Ligue`
 -- AUTO_INCREMENT pour la table `Matchs`
 --
 ALTER TABLE `Matchs`
-  MODIFY `MatchID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `MatchID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `Paris`

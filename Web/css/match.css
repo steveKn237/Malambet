@@ -1,0 +1,75 @@
+
+
+section{
+    border: none;
+    border-radius: 18px;
+    background-color: rgb(67, 136, 204);
+    width: 810px;
+    margin-top: 25px;
+}
+
+section:first-of-type div:last-of-type{
+    display: flex;
+    justify-content: space-around;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(15, 14, 14);
+}
+
+section:nth-of-type(2){
+    display: flex;
+    flex-direction: column;
+}
+
+section:nth-of-type(2) p{
+    margin-left: 50px;
+}
+
+section:nth-of-type(2) div{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+section:nth-of-type(2) div button{
+    width: 100px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    border-radius: 18px;
+    border: none;
+}
+
+/* id */
+
+#Competition{
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+#heure{
+    font-size: 25px;
+}
+
+#ArtDateHeure{
+    text-align: center;
+}
+
+/* classe */
+
+.IMAGE{
+    height: 80px;
+}
+
+.artLogo{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.AfficheBut{
+    
+}
