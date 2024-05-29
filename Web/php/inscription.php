@@ -13,10 +13,22 @@ if(isset($submit))
 
     $result = createUser($uid,$pwd);
 
-    if(is_bool($result))
-        echo "success";
-    else{
-        echo $result;
+    if(!is_bool($result))
+        $fail = $result;
+    else
+    {
+        $url = '../PageAcceuil.php';
+        $data = ['key' => 'value'];
+        
+
+        $options = ['http' => [
+            'method' => 'POST',
+            'header' => 'Content-type:application/json',
+            'content' => $data
+        ]];
+            
+        $context  = stream_context_create($options);
+        $response = file_get_contents($url, false, $context);
     }
 };
 $submit = null;
@@ -32,11 +44,12 @@ $submit = null;
 <body>
     <form action="" method="post">
         <label for="username">User Name</label>
-        <input type="text" id="Uid" name="username">
+        <input type="text" id="Uid" name="username" value="<?= isset($uid)? $uid : ""?>">
         <label for="password">Password</label>
         <input type="password" id="Pwd" name="password">
         <input type="submit" name="submit">
     </form>
+    <p><?= isset($fail)? $fail : ""?></p>
     <form action="" method="post">
         <label for=""></label>
     </form>
