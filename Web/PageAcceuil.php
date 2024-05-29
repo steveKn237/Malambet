@@ -2,7 +2,7 @@
 
     require_once("php/pdo.php");
 
-    $stmt = PDO->prepare("SELECT EquipeID_domicile, EquipeID_visiteur, idLigue, Date FROM Matchs");
+    $stmt = PDO->prepare("SELECT MatchID, EquipeID_domicile, EquipeID_visiteur, idLigue, Date FROM Matchs");
     $stmt->execute();
 
 ?>
@@ -39,67 +39,7 @@
             <div>
                 <h1>Top Match</h1>
             </div>
-                        
-            <!-- liste des matchs -->
-            <!-- doit se générer automatiquement en php -->
-<!--             
-            <div class="match">
-                <div>
-                    <p>InfoCompete date</p>
-                    <p>équipe1 heure équipe2</p>
-                </div>
-                
-                <div>
-                    <button id="I_Victoire1" name="N_Victoire1">
-                        Equipe 1
-                        <br>
-                        <span>1.40</span>
-                    </button>
-                    
-                    <button id="I_Nul" name="N_Nul">
-                        nul
-                        <br>
-                        <span>1.40</span>
-                    </button>
-                    
-                    <button id="I_Victoire2" name="équipe2">
-                        Equipe 2
-                        <br>
-                        <span>1.40</span>
-                    </button>
-                </div>
-                
-            </div>
-            
-            
-            <div class="match">
-                <div>
-                    <p>InfoCompete date</p>
-                    <p>équipe1 heure équipe2</p>
-                </div>
-                
-                <div>
-                    <button id="I_Victoire1" name="N_Victoire1">
-                        Equipe 1
-                        <br>
-                        <span>1.40</span>
-                    </button>
-                    
-                    <button id="I_Nul" name="N_Nul">
-                        nul
-                        <br>
-                        <span>1.40</span>
-                    </button>
-                    
-                    <button id="I_Victoire2" name="équipe2">
-                        Equipe 2
-                        <br>
-                        <span>1.40</span>
-                    </button>
-                </div>
-                
-            </div> -->
-            
+                                    
         <?php
 
         foreach($stmt as $row){
@@ -125,7 +65,7 @@
             
 
             echo "<div class='match'>";
-            echo '<a href="#" class="link">';
+            echo sprintf('<a href="PageMatch.php?idMatch=%s', $row['MatchID'].'" class="link">');
             echo "<div>";
             echo "<p>". $stmtLigue['nomLigue'] . " " . $date . "</p>";
             echo '<p>'. $EquipeDomicile['NomEquipe'] . " " . $heure. ":".$minute. " " . $EquipeVisiteur['NomEquipe'] . '</p>';
