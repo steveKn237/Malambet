@@ -2,6 +2,17 @@
 
     require_once("php/pdo.php");
 
+    parse_str(file_get_contents("php://input"), $body);
+
+    if($body != ''){
+        $username = $body['username'];
+        $stmt = PDO->prepare("SELECT UserID FROM Utilisateurs WHERE Nom=:username");
+        $stmt->bindParam(":username", $username, PDO::PARAM_STR);
+        $stmt->execute();
+        list($uid) = $stmt->fetch();
+    }
+
+
     if($_GET != null){
         $idL = filter_input(INPUT_GET, "idLigue");
         $stmt = PDO->prepare("SELECT MatchID, EquipeID_domicile, EquipeID_visiteur, idLigue, Date FROM Matchs WHERE idLigue = :idL");
@@ -29,7 +40,7 @@
         <img src="img/logo.png" alt="logo malambet">
         <!-- <h1>Malambet</h1> -->
         <nav>
-            <a href="#">Inscription</a>
+            <a href="php/inscription.php">Inscription</a>
             <a href="#">Connexion</a>
         </nav>
     </header>

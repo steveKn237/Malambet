@@ -1,4 +1,5 @@
 <?php
+
 require_once("crud.php");
 
 // createBet(null,"fesfsef", 1, 2, 20, 1.40);
@@ -17,21 +18,15 @@ if(isset($submit))
         $fail = $result;
     else
     {
-        $url = '../PageAcceuil.php';
-        $data = ['key' => 'value'];
-        
-
-        $options = ['http' => [
-            'method' => 'POST',
-            'header' => 'Content-type:application/json',
-            'content' => $data
-        ]];
-            
-        $context  = stream_context_create($options);
-        $response = file_get_contents($url, false, $context);
+        echo "<form action='../PageAcceuil.php' method='post' id='form'>";
+        echo "<input type='text' id='Uid' name='username' value='$uid'>";
+        echo "<input type='password' id='Pwd' name='password' value='$pwd' required>";
+        echo "</form>";
     }
 };
+
 $submit = null;
+
 ?>
 
 <!DOCTYPE html>
@@ -54,4 +49,10 @@ $submit = null;
         <label for=""></label>
     </form>
 </body>
+<script>
+    let form = document.getElementById('form')
+
+    if(form != null)
+        form.submit();
+</script>
 </html>
