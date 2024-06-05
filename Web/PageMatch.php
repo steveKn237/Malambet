@@ -22,7 +22,7 @@ $stmtMatch->execute();
 
 <body>
     <header>
-        <h1><a href="PageAcceuil.php">Malambet</a></h1>
+        <a href="PageAcceuil.php"><img src="img/logo.png" alt="logo malambet"></a>
         <nav>
             <a href="#">Inscription</a>
             <a href="#">Connexion</a>

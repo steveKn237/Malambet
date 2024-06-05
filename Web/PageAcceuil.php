@@ -26,7 +26,8 @@
 
 <body>
     <header>
-        <h1>Malambet</h1>
+        <img src="img/logo.png" alt="logo malambet">
+        <!-- <h1>Malambet</h1> -->
         <nav>
             <a href="#">Inscription</a>
             <a href="#">Connexion</a>

@@ -15,9 +15,10 @@ header{
     width: 100%;
 }
 
-header h1{
-    padding-left: 25px;
-    
+
+
+header img{
+    width: 95px;
 }
 
 header nav{
