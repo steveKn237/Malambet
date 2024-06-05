@@ -4,7 +4,8 @@
 
     if($_GET != null){
         $idL = filter_input(INPUT_GET, "idLigue");
-        $stmt = PDO->prepare("SELECT MatchID, EquipeID_domicile, EquipeID_visiteur, idLigue, Date FROM Matchs WHERE idLigue = '".$idL."'");
+        $stmt = PDO->prepare("SELECT MatchID, EquipeID_domicile, EquipeID_visiteur, idLigue, Date FROM Matchs WHERE idLigue = :idL");
+        $stmt->bindParam(":idL", $idL);
     }
     else{
         $stmt = PDO->prepare("SELECT MatchID, EquipeID_domicile, EquipeID_visiteur, idLigue, Date FROM Matchs");
