@@ -2,7 +2,14 @@
 
     require_once("php/pdo.php");
 
-    $stmt = PDO->prepare("SELECT MatchID, EquipeID_domicile, EquipeID_visiteur, idLigue, Date FROM Matchs");
+    if($_GET != null){
+        $idL = filter_input(INPUT_GET, "idLigue");
+        $stmt = PDO->prepare("SELECT MatchID, EquipeID_domicile, EquipeID_visiteur, idLigue, Date FROM Matchs WHERE idLigue = '".$idL."'");
+    }
+    else{
+        $stmt = PDO->prepare("SELECT MatchID, EquipeID_domicile, EquipeID_visiteur, idLigue, Date FROM Matchs");
+    }
+
     $stmt->execute();
 
 ?>
@@ -30,9 +37,10 @@
 
         <aside class="aside">
             <h2>Nos Compétition</h2>
-            <input type="button" name="N_ldc" id="I_ldc" value="ligue des Champions">
-            <input type="button" name="N_bundes" id="I_bundes" value="Bundesliga">
-            <input type="button" name="N_l1" id="I_l1" value="Ligue 1 Mcdonald's">
+            <input type="button" onclick="selectMatch(1)" name="N_AllMatch" id="I_AllMatch" value="Tout les matchs">
+            <input type="button" onclick="selectMatch(2)" name="N_ldc" id="I_ldc" value="ligue des Champions">
+            <input type="button" onclick="selectMatch(3)" name="N_bundes" id="I_bundes" value="Bundesliga">
+            <input type="button" onclick="selectMatch(4)" name="N_l1" id="I_l1" value="Ligue 1 Mcdonald's">
         </aside>
         
         <main>
@@ -119,5 +127,5 @@
         </div>
     </footer>
 </body>
-
+<script src="js/script.js"></script>
 </html>
