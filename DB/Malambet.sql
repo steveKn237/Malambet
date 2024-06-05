@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mer. 29 mai 2024 à 13:55
+-- Généré le : mer. 05 juin 2024 à 12:13
 -- Version du serveur : 10.6.16-MariaDB-0ubuntu0.22.04.1
 -- Version de PHP : 8.2.19
 
@@ -45,7 +45,8 @@ INSERT INTO `Equipes` (`EquipeID`, `NomEquipe`, `Acronyme`, `Logo`) VALUES
 (2, 'Real Madrid', 'RMA', 'img/RMA.png'),
 (3, 'Olympique de Marseille', 'OM', 'img/OM.png'),
 (4, 'Paris Saint Germin', 'PSG', 'img/PSG.png'),
-(5, 'FC Barcelona', 'BAR', 'img/BAR.png');
+(5, 'FC Barcelona', 'BAR', 'img/BAR.png'),
+(6, 'Borussia Dortmund', 'BVB', 'img/BVB.png');
 
 -- --------------------------------------------------------
 
@@ -65,7 +66,8 @@ CREATE TABLE `Ligue` (
 
 INSERT INTO `Ligue` (`idLigue`, `nomLigue`, `Acronyme`) VALUES
 (1, 'Ligue Des Champions', 'LDC'),
-(2, 'Ligue 1 Mcdonald\'s', 'L1');
+(2, 'Ligue 1 Mcdonald\'s', 'L1'),
+(3, 'Bundesliga', 'Bundes');
 
 -- --------------------------------------------------------
 
@@ -89,7 +91,8 @@ INSERT INTO `Matchs` (`MatchID`, `EquipeID_domicile`, `EquipeID_visiteur`, `Date
 (2, 3, 2, '2024-05-22 21:00:00', 1),
 (3, 1, 3, '2024-05-22 13:02:01', 1),
 (4, 3, 4, '2024-05-22 19:00:00', 2),
-(5, 1, 5, '2024-10-04 14:56:20', 1);
+(5, 1, 5, '2024-10-04 14:56:20', 1),
+(6, 6, 1, '2024-06-27 14:00:42', 3);
 
 -- --------------------------------------------------------
 
@@ -167,19 +170,19 @@ ALTER TABLE `Utilisateurs`
 -- AUTO_INCREMENT pour la table `Equipes`
 --
 ALTER TABLE `Equipes`
-  MODIFY `EquipeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `EquipeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `Ligue`
 --
 ALTER TABLE `Ligue`
-  MODIFY `idLigue` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idLigue` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `Matchs`
 --
 ALTER TABLE `Matchs`
-  MODIFY `MatchID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `MatchID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `Paris`
