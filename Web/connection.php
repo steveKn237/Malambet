@@ -41,7 +41,7 @@ if(isset($submit))
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style_connexion.css">
+    <link rel="stylesheet" href="css/style_connexion.css">
     <title>Connexion</title>
 </head>
 
@@ -59,7 +59,7 @@ if(isset($submit))
             </div>
             <button type="submit" name="submit">Se connecter</button>
         </form>
-        <p>Vous n'avez pas de compte? <a href="php/inscription.php">Créez-en un</a>.</p>
+        <p>Vous n'avez pas de compte? <a href="inscription.php">Créez-en un</a>.</p>
         <p><?= isset($fail)? $fail : ""?></p>   
     </div>
 </body>

@@ -24,8 +24,8 @@ $stmtMatch->execute();
     <header>
         <a href="PageAcceuil.php"><img src="img/logo.png" alt="logo malambet"></a>
         <nav>
-            <a href="#">Inscription</a>
-            <a href="#">Connexion</a>
+            <a href="inscription.php">Inscription</a>
+            <a href="connection.php">Connexion</a>
         </nav>
     </header>
 
