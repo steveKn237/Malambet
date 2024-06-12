@@ -6,11 +6,15 @@
     parse_str(file_get_contents("php://input"), $body);
 
     if(count($body) > 0){
-        $username = $body['username'];
-        $stmt = PDO->prepare("SELECT UserID FROM Utilisateurs WHERE Nom=:username");
-        $stmt->bindParam(":username", $username, PDO::PARAM_STR);
-        $stmt->execute();
-        list($uid) = $stmt->fetch();
+        if($body['username'] != null)
+            $uid = $body['username'];
+        else{
+            $username = $body['username'];
+            $stmt = PDO->prepare("SELECT UserID FROM Utilisateurs WHERE Nom=:username");
+            $stmt->bindParam(":username", $username, PDO::PARAM_STR);
+            $stmt->execute();
+            list($uid) = $stmt->fetch();
+        }
     }
 
 
@@ -25,10 +29,7 @@
 
     $stmt->execute();
 
-    function gateau(){
-        echo "gateau";
-    }
-
+    $submit = null;
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -45,7 +46,7 @@
         <img src="img/logo.png" alt="logo malambet">
         <!-- <h1>Malambet</h1> -->
         <nav>
-            <a href="php/inscription.php">Inscription</a>
+            <a href="inscription.php">Inscription</a>
             <a href="connection.php">Connexion</a>
         </nav>
     </header>
@@ -88,7 +89,7 @@
 
             $stmtLigue = $stmtLigue->fetch();
 
-
+            $coteWin = 1.40;
             
 
             echo "<div class='match'>";
@@ -100,7 +101,16 @@
             echo "</div>";
 
             echo "<div>";
-            echo isset($uid)?'<button id="I_'.$row['EquipeID_domicile'].'" name="N_'.$row['EquipeID_domicile'].'" onclick="'.'addBet('.$uid.', '.$row['MatchID'].', '.$row['EquipeID_domicile'].', '.$EquipeVisiteur['Acronyme'].', 1.40)'.'">'  :'<button id="I_'.$row['EquipeID_domicile'].'" name="N_'.$row['EquipeID_domicile'].'';
+            if(isset($uid)){
+                echo '<button id="I_'.$row['EquipeID_domicile'].'" name="N_'.$row['EquipeID_domicile'].'" onclick="afficherMontant()">';
+                $submit = filter_input(INPUT_POST, "submit");
+
+                if(isset($submit)){
+                    $price = filter_input(INPUT_POST, "prix");
+                    createBet($uid, null, $row['MatchID'], $row['EquipeID_domicile'],$coteWin, $price);
+                }
+            }
+            echo isset($uid)?   :'<button id="I_'.$row['EquipeID_domicile'].'" name="N_'.$row['EquipeID_domicile'].'">';
             echo $EquipeDomicile['Acronyme'];
             echo "<br>";
             echo "<span>1.40</span>";
@@ -124,6 +134,12 @@
 
         ?>
 
+        <form action="" method="post" id="montant" style="display: none; width:50px; position:absolute;">
+            <label for="prix">Prix</label>
+            <input type="text" name="prix" id="prix">
+            <input type="text" name="username" style="display: none;" value="<?=isset($uid)?$uid :""?>">
+            <input type="submit" name="submit" value="Envoyer">
+        </form>
         </main>
         
         <aside class="aside2" id="mesParis">
@@ -145,32 +161,10 @@
         </div>
     </footer>
 </body>
-<script src="js/script.js"></script>
 <script>    
-    function addBet($uid, $matchID, $equipeDomicileID, $equipeVisiteurID, $cote){
-        let price = prompt('Indiquez le montant de la mise');
-        
-        while (!/^[0-9]+$/.test(price) && price != null) {
-            alert("You did not enter a valid number");
-            price = prompt('Indiquez le montant de la mise');
-        }
-
-        let div = document.createElement("div")
-
-        div.innerHTML = "<?php
-            $EquipeDomicile = findTeamName($equipeDomicileID);
-            $EquipeVisiteur = findTeamName($equipeVisiteurID);
-
-            echo $EquipeDomicile['Acronyme'];
-            echo " vs ";
-            echo $EquipeVisiteur['Acronyme'];
-
-            echo "<br>";
-            
-            echo $EquipeDomicile['NomEquipe'];
-            echo $cote;            
-
-        ?>"
+    function afficherMontant(){
+        montant.style.display = "flex";
     }
 </script>
+<script src="js/script.js"></script>
 </html>
