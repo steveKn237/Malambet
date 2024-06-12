@@ -100,7 +100,7 @@
             echo "</div>";
 
             echo "<div>";
-            echo '<button id="I_'.$row['EquipeID_domicile'].'." name="N_'.$row['EquipeID_domicile'].'" onclick="addBet('.$uid.', '.$row['MatchID'].', '.$row['EquipeID_domicile'].', 1.40)">';
+            echo isset($uid)?'<button id="I_'.$row['EquipeID_domicile'].'" name="N_'.$row['EquipeID_domicile'].'" onclick="'.'addBet('.$uid.', '.$row['MatchID'].', '.$row['EquipeID_domicile'].', '.$EquipeVisiteur['Acronyme'].', 1.40)'.'">'  :'<button id="I_'.$row['EquipeID_domicile'].'" name="N_'.$row['EquipeID_domicile'].'';
             echo $EquipeDomicile['Acronyme'];
             echo "<br>";
             echo "<span>1.40</span>";
@@ -147,7 +147,7 @@
 </body>
 <script src="js/script.js"></script>
 <script>    
-    function addBet($uid, $matchID, $equipeID, $cote){
+    function addBet($uid, $matchID, $equipeDomicileID, $equipeVisiteurID, $cote){
         let price = prompt('Indiquez le montant de la mise');
         
         while (!/^[0-9]+$/.test(price) && price != null) {
@@ -158,7 +158,17 @@
         let div = document.createElement("div")
 
         div.innerHTML = "<?php
-            echo findTeamName($equipeID)
+            $EquipeDomicile = findTeamName($equipeDomicileID);
+            $EquipeVisiteur = findTeamName($equipeVisiteurID);
+
+            echo $EquipeDomicile['Acronyme'];
+            echo " vs ";
+            echo $EquipeVisiteur['Acronyme'];
+
+            echo "<br>";
+            
+            echo $EquipeDomicile['NomEquipe'];
+            echo $cote;            
 
         ?>"
     }
