@@ -28,16 +28,16 @@ function createUser($name, $pwd){
 };
 
 
-function findTeamID($id){
+function findTeamName($id){
 
-    $stmt = PDO->prepare("SELECT EquipeID FROM Equipes WHERE NomEquipe = $id");
+    $stmt = PDO->prepare("SELECT NomEquipe, Acronyme FROM Equipes WHERE EquipeID = $id");
 
     $stmt->execute();
     $equipe = $stmt->fetchAll();
 
     $stmt->closeCursor();
 
-    return $equipe["EquipeID"];
+    return $equipe;
 }
 
 

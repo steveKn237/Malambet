@@ -25,6 +25,10 @@
 
     $stmt->execute();
 
+    function gateau(){
+        echo "gateau";
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -61,7 +65,6 @@
             <div>
                 <h1>Top Match</h1>
             </div>
-                                    
         <?php
 
         foreach($stmt as $row){
@@ -84,6 +87,8 @@
             $stmtLigue->execute();
 
             $stmtLigue = $stmtLigue->fetch();
+
+
             
 
             echo "<div class='match'>";
@@ -95,7 +100,7 @@
             echo "</div>";
 
             echo "<div>";
-            echo '<button id="I_'.$row['EquipeID_domicile'].'." name="N_'.$row['EquipeID_domicile'].' onclick="prompt("Veuillez indiquer le prix", 1)"">';
+            echo '<button id="I_'.$row['EquipeID_domicile'].'." name="N_'.$row['EquipeID_domicile'].'" onclick="addBet('.$uid.', '.$row['MatchID'].', '.$row['EquipeID_domicile'].', 1.40)">';
             echo $EquipeDomicile['Acronyme'];
             echo "<br>";
             echo "<span>1.40</span>";
@@ -119,10 +124,9 @@
 
         ?>
 
-
         </main>
         
-        <aside class="aside2">
+        <aside class="aside2" id="mesParis">
             <h2>Mes paris</h2>
         </aside>
 
@@ -142,4 +146,21 @@
     </footer>
 </body>
 <script src="js/script.js"></script>
+<script>    
+    function addBet($uid, $matchID, $equipeID, $cote){
+        let price = prompt('Indiquez le montant de la mise');
+        
+        while (!/^[0-9]+$/.test(price) && price != null) {
+            alert("You did not enter a valid number");
+            price = prompt('Indiquez le montant de la mise');
+        }
+
+        let div = document.createElement("div")
+
+        div.innerHTML = "<?php
+            echo findTeamName($equipeID)
+
+        ?>"
+    }
+</script>
 </html>
