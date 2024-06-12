@@ -13,6 +13,7 @@ if(isset($submit))
     $pwd = filter_input(INPUT_POST, "password");
 
     $result = createUser($uid,$pwd);
+    echo $result;
 
     if(!is_bool($result))
         $fail = $result;

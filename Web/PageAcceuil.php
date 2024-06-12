@@ -42,7 +42,7 @@
         <!-- <h1>Malambet</h1> -->
         <nav>
             <a href="php/inscription.php">Inscription</a>
-            <a href="#">Connexion</a>
+            <a href="connection.php">Connexion</a>
         </nav>
     </header>
 

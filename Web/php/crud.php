@@ -8,19 +8,19 @@ function userExist($name){
     foreach($users as $user)
     {
         if($name == $user['Nom'])
-            return $user['UserID'];
+            return true;
     }
-    return false;
+    return "Cet utilisateur n'existe pas";
     $stmt->closeCursor();
 };
 
 
 
 function createUser($name, $pwd){
-    if(userExist($name))
+    if(is_bool(userExist($name)))
         return "Cet utilisateur existe déjà";
 
-    $pwd = hash("sha256", $pwd);
+    $pwd = password_hash($pwd, PASSWORD_DEFAULT);
     $stmt = PDO->prepare("INSERT INTO Utilisateurs(Nom, Mdp_hash) VALUES(?, ?)");
     $stmt->execute([$name, $pwd]);
     $stmt->closeCursor();
