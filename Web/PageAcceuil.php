@@ -1,10 +1,11 @@
 <?php
 
     require_once("php/pdo.php");
+    require_once("php/crud.php");
 
     parse_str(file_get_contents("php://input"), $body);
 
-    if($body != ''){
+    if(count($body) > 0){
         $username = $body['username'];
         $stmt = PDO->prepare("SELECT UserID FROM Utilisateurs WHERE Nom=:username");
         $stmt->bindParam(":username", $username, PDO::PARAM_STR);
@@ -94,7 +95,7 @@
             echo "</div>";
 
             echo "<div>";
-            echo '<button id="I_'.$row['EquipeID_domicile'].'." name="N_'.$row['EquipeID_domicile'].'">';
+            echo '<button id="I_'.$row['EquipeID_domicile'].'." name="N_'.$row['EquipeID_domicile'].' onclick="prompt("Veuillez indiquer le prix", 1)"">';
             echo $EquipeDomicile['Acronyme'];
             echo "<br>";
             echo "<span>1.40</span>";

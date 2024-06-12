@@ -28,9 +28,9 @@ function createUser($name, $pwd){
 };
 
 
-function findTeamID($name){
+function findTeamID($id){
 
-    $stmt = PDO->prepare("SELECT EquipeID FROM Equipes WHERE NomEquipe = $name");
+    $stmt = PDO->prepare("SELECT EquipeID FROM Equipes WHERE NomEquipe = $id");
 
     $stmt->execute();
     $equipe = $stmt->fetchAll();

@@ -2,7 +2,7 @@
 
 require_once("crud.php");
 
-// createBet(null,"fesfsef", 1, 2, 20, 1.40);
+createBet(null,"fesfsef", 1, 2, 20, 1.40);
 
 $submit = filter_input(INPUT_POST, "submit");
 
@@ -20,7 +20,6 @@ if(isset($submit))
     {
         echo "<form action='../PageAcceuil.php' method='post' id='form'>";
         echo "<input type='text' id='Uid' name='username' value='$uid'>";
-        echo "<input type='password' id='Pwd' name='password' value='$pwd' required>";
         echo "</form>";
     }
 };
