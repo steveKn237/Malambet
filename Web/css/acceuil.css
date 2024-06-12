@@ -12,7 +12,6 @@ header{
     justify-content: space-between;
     padding-left: 1%;
     padding-right: 1%;
-    width: 100%;
 }
 
 
@@ -96,7 +95,6 @@ main > div:first-of-type{
 
 
 footer{
-    width: 100%;
     min-height: 100px;
     margin-top: 20px;
     left: 0;
